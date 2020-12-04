@@ -34,6 +34,11 @@ reown_folders() {
 	chown root: /var/spool/postfix/pid
 }
 
+# log to /var/log/postfix instead of stdout
+postfix_log_to_file() {
+	do_postconf -e maillog_file=/var/log/postfix.log
+}
+	
 postfix_disable_utf8() {
 	do_postconf -e smtputf8_enable=no
 }
